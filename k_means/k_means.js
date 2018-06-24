@@ -51,6 +51,7 @@ class Cluster{
 		return Math.sqrt(dx*dx + dy*dy);
 	}
 }
+
 function generateRandomPoints( min_x, max_x, min_y, max_y , num ){
 	var rand_pts=[];
 	for( i = 0; i < num; i++ ){
@@ -61,14 +62,12 @@ function generateRandomPoints( min_x, max_x, min_y, max_y , num ){
 	return rand_pts;
 }
 
-
 class K_Means{
 	constructor( k , d ){
 		this._k = k;
 		this._d = d;
 		this.init( k, d );
 	}
-
 	init( k, d ){
 		this._clusters = [];
 		var check = [];
@@ -83,11 +82,9 @@ class K_Means{
 			cid ++;
 		}
 	}
-
 	get clusters(){
 		return this._clusters;
 	}
-
 	set_nearest_cluster( callback ){
 		var end = true;
 		for( var i = 0; i < this._d.length; i++ ){
@@ -95,8 +92,7 @@ class K_Means{
 				if( this._d[i].cluster == null ){
 					this._d[i].set_cluster(this._clusters[j]);
 					end = false;
-				}else if( /*this._d[i].cluster_id != j &&*/
-					parseFloat( this._clusters[j].disimilarity(this._d[i]) ) < parseFloat( this._d[i].disimilarity ))
+				}else if( parseFloat( this._clusters[j].disimilarity(this._d[i]) ) < parseFloat( this._d[i].disimilarity ))
 				{
 					this._d[i].set_cluster( this._clusters[j] );
 					end = false;
@@ -108,7 +104,6 @@ class K_Means{
 
 		return end;
 	}
-
 	update_centroid( callback ){
 		var cxs = [];
 		var cys = [];
