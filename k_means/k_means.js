@@ -128,5 +128,9 @@ class K_Means{
 		if( typeof callback == "function")
 			callback( this._d , this._clusters );
 	}
-
+	clustering( callback1, callback2 ){
+		while( !set_nearest_cluster( callback1 ) ){
+			update_centroid( callback2 );
+		}
+	}
 }
