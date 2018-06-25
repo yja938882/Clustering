@@ -1,6 +1,6 @@
 # K-Means 
 ## Example
-> ![example](https://github.com/yja938882/DSJS/blob/master/k_means/example.png)  
+> ![example](https://github.com/yja938882/DSJS/blob/master/k_means/example_k_mean.png)  
 > https://yja938882.github.io/d3_practice/k_means.html
 
 ### With d3.js
