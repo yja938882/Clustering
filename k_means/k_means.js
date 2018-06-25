@@ -1,31 +1,21 @@
-class Data_Point{
-	constructor( x, y ){
-		this._x = x;
-		this._y = y;
-		this._d = 0;
-		this._cluster == null;
-	}
-	set_cluster( c ){
-		this._cluster = c;
-		this._d = c.disimilarity(this);
-		this._cluster_id = c.id;
-	}
-	get x( ){
-		return this._x;
-	}
-	get y( ){
-		return this._y;
-	}
-	get cluster( ){
-		return this._cluster;
-	}
-	get disimilarity(){
-		return this._d;
-	}
-	get cluster_id(){
-		return this._cluster_id;
-	}
+
+function disimilarity( a , b ){
+		var dx = parseFloat(a.x) - parseFloat(b.x);
+		var dy = parseFloat(a.y) - parseFloat(b.y);
+		return Math.sqrt(dx*dx + dy*dy);
 }
+
+function generateRandomPoints( min_x, max_x, min_y, max_y , num ){
+	var rand_pts=[];
+	for( var i = 0; i < num; i++ ){
+		rand_pts[i] = {
+			x : (Math.random() * ( max_x - min_x ) + min_x),
+			y : (Math.random() * ( max_y - min_y ) + min_y )
+		};
+	}
+	return rand_pts;
+}
+
 class Cluster{
 	constructor( x, y ,id ){
 		this._x = x;
@@ -45,21 +35,6 @@ class Cluster{
 	get id(){
 		return this._id;
 	}
-	disimilarity( dp ){
-		var dx = this._x - dp.x;
-		var dy = this._y - dp.y;
-		return Math.sqrt(dx*dx + dy*dy);
-	}
-}
-
-function generateRandomPoints( min_x, max_x, min_y, max_y , num ){
-	var rand_pts=[];
-	for( i = 0; i < num; i++ ){
-		rand_pts[i] = new Data_Point(
-			Math.random() * ( max_x - min_x ) + min_x,
-			Math.random() * ( max_y - min_y ) + min_y );
-	}
-	return rand_pts;
 }
 
 class K_Means{
@@ -71,8 +46,9 @@ class K_Means{
 	init( k, d ){
 		this._clusters = [];
 		var check = [];
-		for( i = 0; i < d.length; i++ ){
+		for( var i = 0; i < d.length; i++ ){
 			check[i] = false;
+			this._d[i].cluster_id = -1;
 		}
 		for( var cid = 0; cid < k ; ){
 			var idx = Math.floor( Math.random() * ( d.length-1 ) );
@@ -89,12 +65,10 @@ class K_Means{
 		var end = true;
 		for( var i = 0; i < this._d.length; i++ ){
 			for( var j = 0; j< this._clusters.length; j++ ){
-				if( this._d[i].cluster == null ){
-					this._d[i].set_cluster(this._clusters[j]);
-					end = false;
-				}else if( parseFloat( this._clusters[j].disimilarity(this._d[i]) ) < parseFloat( this._d[i].disimilarity ))
+				if( this._d[i].cluster_id == -1 || 
+					parseFloat( disimilarity(this._d[i], this._clusters[j])) < parseFloat( disimilarity(this._d[i], this._clusters[this._d[i].cluster_id])))
 				{
-					this._d[i].set_cluster( this._clusters[j] );
+					this._d[i].cluster_id = j;
 					end = false;
 				}
 			}
@@ -126,7 +100,7 @@ class K_Means{
 			this._clusters[ i ].set( cxs[ i ], cys[ i ] );
 		}
 		if( typeof callback == "function")
-			callback( this._d , this._clusters );
+			callback( this._d , this._clusters);
 	}
 	clustering( callback1, callback2 ){
 		while( !set_nearest_cluster( callback1 ) ){
