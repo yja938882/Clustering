@@ -1,5 +1,4 @@
 # K-Means 
-## Example
 example1             |  example2
 :-------------------------:|:-------------------------:
 ![](https://github.com/yja938882/DSJS/blob/master/k_means/example1.png)  |  ![](https://github.com/yja938882/DSJS/blob/master/k_means/example2.png)
@@ -9,29 +8,14 @@ LOAD
 > ```javascript
 > <script type="text/javascript" src="/* path */d3.min.js"></script>
 > <script type="text/javascript" src="/* path */k_means.js"></script>
-> ```
-CSS
-> ```css
-> #board{
->   width: 600px;
->   height: 600px;
->   float: left;
->   border-width: 2px;
->   border-style: solid;
->  }
-> #step{
->  width: 80px;
->  height: 40px;
->  margin-left: 10px;
->  }
+DataFormat
+> ```javascript
+> var DATA = [
+>     { x: 1, y: 2},
+>     { x: 0, y: 3},
+>         ...];
 >```
-HTML
-> ```html
-> <h2> K-Means Clustering with d3.js </h2>	
-> <div id="board">		
-> </div>
-> <button id="step" onclick ="step()"> step </button>
-> ```
+
 JavaScript
 > ```javascript
 > function getColor( c ){
