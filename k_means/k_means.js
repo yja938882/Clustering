@@ -31,25 +31,6 @@ function manhattan_distance( a, b ){
 	return dx + dy ;
 }
 
-/**
- * 임의이 데이터 셋 생성.
- * @param {number} min_x 데이터 최소 x 값.
- * @param {number} max_x 데이터 최대 x 값.
- * @param {number} min_y 데이터 최소 y 값.
- * @param {number} max_y 데이터 최대 y 값.
- * @param {number} num 데이터의 갯수.
- */
-function generateRandomPoints( min_x, max_x, min_y, max_y , num ){
-	var rand_pts=[];
-	for( var i = 0; i < num; i++ ){
-		rand_pts[i] = {
-			x : (Math.random() * ( max_x - min_x ) + min_x),
-			y : (Math.random() * ( max_y - min_y ) + min_y )
-		};
-	}
-	return rand_pts;
-}
-
 class Cluster{
 	/**
 	 * @param {number}
