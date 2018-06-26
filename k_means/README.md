@@ -1,8 +1,8 @@
 # K-Means 
 ## Example
-> ![example1](https://github.com/yja938882/DSJS/blob/master/k_means/example1.png)
-> ![example2](https://github.com/yja938882/DSJS/blob/master/k_means/example2.png)  
-> https://yja938882.github.io/d3_practice/k_means.html
+example1             |  example2
+:-------------------------:|:-------------------------:
+![](https://github.com/yja938882/DSJS/blob/master/k_means/example1.png)  |  ![](https://github.com/yja938882/DSJS/blob/master/k_means/example2.png)
 
 ### With d3.js
 LOAD
