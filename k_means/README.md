@@ -15,73 +15,9 @@ DataFormat
 >     { x: 0, y: 3},
 >         ...];
 >```
-
-JavaScript
+Init
 > ```javascript
-> function getColor( c ){
->   switch( c ){
->     case 0 : return 'black';
->     case 1 : return 'blue';
->     case 2 : return 'red';
->     case 3 : return 'green';
->   }
-> }
-> 
-> /* 임의 의 데이터 set 생성 */ 
-> var rd = generateRandomPoints( 10, 580, 10, 580, 1000 );
-> var svg = d3.select('#board').append('svg')
->   .attr('width','600').attr('height','600').append('g');
-> 
-> var k = new K_Means(4,rd);
-> 
-> /* update 된 point 와 cluster 정보를 render */
-> function render( dots , clusters ){
->   svg.selectAll('g').remove();
->   var g = svg.append('g');
->   g.selectAll('.dot')
->   .data( dots )
->   .enter().append('circle')
->   .attr('class','dot')
->   .attr('r',3)
->   .attr('cx',function(d){ return d.x; })
->   .attr('cy',function(d){ return d.y; })
->   .attr('id',function(d){ return d.cluster_id; })
->   .style('fill',function(d){
->     return getColor( d.cluster_id );
->   });
->
->   g.selectAll('.dotc')
->     .data( clusters )
->     .enter().append('circle')
->     .attr('class','dotc')
->     .attr('r',10)
->     .attr('cx',function(d){ return d.x; })
->     .attr('cy',function(d){ return d.y; })
->     .style('fill',function(d){
->       return getColor( d.id );
->     });
-> }
-> 
-> /* K-Means Clustering 을 단계별로 보기위한 함수 */
-> var s = 0;
-> function step(){
->   if( s % 2 ==0)
->     k.set_nearest_cluster( render ); // 각 점들을 가장 가까운 cluster 에 할당
->   else
->     k.update_centroid(render); // 각 cluster 들의 Centetoid 를 
->   s++;
-> }
->
-> var g = svg.append('g');
-> g.selectAll('.dot')
-> .data( rd )
-> .enter().append('circle')
-> .attr('class','dot')
-> .attr('r',3)
-> .attr('cx',function(d){ return d.x; })
-> .attr('cy',function(d){ return d.y; })
-> .attr('id',function(d){ return d.cluster_id; })
->   .style('fill',function(d){
->   return 'black' ;
-> });
+> var k = new K_Means( K, DATA );
+> // K : cluster 수.
+> // Data : clustering 할 데이터.
 > ```
