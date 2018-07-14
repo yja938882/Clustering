@@ -1,10 +1,11 @@
 (function(root){
-	var k
-    , data
-    , clusters
-    , attr_sz;
+    var k,
+        data,
+        clusters,
+        attr_sz;
 
-    /** Constructor
+    /**
+     * @brief Constructor 
      * @param {Object} args
      */
     function K_Means(args) {
@@ -127,19 +128,19 @@
         }
         return ret;
     }
-
-	if (typeof exports !== 'undefined') {
+    
+    if (typeof exports !== 'undefined') {
     	if (typeof module !== 'undefined' && module.exports) {
-      	exports = module.exports = K_Means;
-    }
-    exports.K_Means = K_Means;
-  	} else if (typeof define === 'function' && define.amd) {
+            exports = module.exports = K_Means;
+        }
+        exports.K_Means = K_Means;
+    } else if (typeof define === 'function' && define.amd) {
     	define([], function() {
-     	return K_Means;
-    });
-  	} else {
-    	root.K_Means = K_Means;
-  	}
+            return K_Means;
+        });
+    } else {
+        root.K_Means = K_Means;
+    }
 
  })(this);
 	
