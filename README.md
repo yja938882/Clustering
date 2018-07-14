@@ -73,7 +73,7 @@ Docs
 >/* Update Step. Calculate the new means to be the centroids */
 > kmeans.updateCentroid(render);
 > ```
-> * ```callback``` Function : Function that is called after Udate Step.
+> * ```callback``` Function : Function that is called after Update Step.
 
 </br></br>
   
