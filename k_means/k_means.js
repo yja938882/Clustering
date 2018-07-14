@@ -1,3 +1,5 @@
+'use strict'
+
 (function(root){
     var k,
         data,

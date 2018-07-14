@@ -74,31 +74,11 @@
 		</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.4.3.min.js"></script>
-	<script type="text/javascript" src="./d3js/d3.min.js"></script>
-	<!--script type="text/javascript" src="./k_means_.js"></script-->
-	<script type="text/javascript" src="./random_data.js"></script>
-	<script type="text/javascript" src="require.js"></script>
+	<script type="text/javascript" src="./js/d3.min.js"></script>
+	<script type="text/javascript" src="./js/k_means.js"></script>
+	<script type="text/javascript" src="./js/random_data.js"></script>
 	<script>
 
-require.config({
-	baseUrl: './' ,
-	paths : {
-		kmeans : 'k_means_',
-	}
-});
-
-
-	/*
-		function getColor( c ){
-			switch( c ){
-				case 0 : return 'black';
-				case 1 : return 'blue';
-				case 2 : return 'red';
-				case 3 : return 'green';
-				case 4 : return 'pink';
-			}
-		}
-		*/
 		var color = d3.scale.category10();
 
 		var rd = generateRandomPoints( 10, 390, 10, 390, 100 ,
@@ -142,9 +122,9 @@ require.config({
 		var s = 0;
 		var end = false;
 	
-		require(['kmeans'],function(km){
+		
 
-					function render( dots , clusters ){
+		function render( dots , clusters ){
 			svg.selectAll('g').remove();
 			g = svg.append('g');
 			g.selectAll('.dot')
@@ -171,22 +151,12 @@ require.config({
 			.style('fill-opacity',0.2);
 		}
 
-
-			var k = parseInt( document.getElementById("k").value );
-		//	km.init({ k : k , data : rd });
-			var k = parseInt( document.getElementById("k").value );
-			var kmeans = new km({ k : k , data : rd });
-				//k_means_.init(;
-			var end = kmeans.setNearestCluster( kmeans.euclidean, render );
-		});
-/*
 		function step(){
 			console.log('step');
 			if( end ) return;
 			if( s == 0 ){
 				var k = parseInt( document.getElementById("k").value );
 				kmeans = new K_Means({ k : k , data : rd });
-				//k_means_.init(;
 				end = kmeans.setNearestCluster( kmeans.euclidean, render );
 			}else if( s % 2 ==0){
 				end = kmeans.setNearestCluster( kmeans.euclidean, render );
@@ -233,8 +203,6 @@ require.config({
 					return 'black' ;
 			});
 		}
-
-*/
 	</script>
 	</body>
 	
