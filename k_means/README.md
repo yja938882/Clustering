@@ -1,46 +1,48 @@
-# K-Means 
+K-Means
+===  
 example1             |  example2
 :-------------------------:|:-------------------------:
 ![](https://github.com/yja938882/DSJS/blob/master/k_means/example/example1.png)  |  ![](https://github.com/yja938882/DSJS/blob/master/k_means/example/example2.png)
 
 https://yja938882.github.io/d3_practice/k_means.html
 
-#### Load
+Load
+=== 
 > ```javascript
-> <script type="text/javascript" src="/* path */d3.min.js"></script>
 > <script type="text/javascript" src="/* path */k_means.js"></script>
-#### DataFormat
+  
+DataFormat
+=== 
 > ```javascript
-> 
+> var Data = [
+>  [0.5, 0.7],
+>  [3.6, 0.11],
+>  ...
+> ];
 >```
-#### Init
+
+ 
+Docs
+===
+&nbsp;&nbsp; Constructor  
+
+&nbsp;&nbsp;&nbsp;&nbsp; **K_Means(args)**   
+
 > ```javascript
-> var kmeans = new K_Means( K, DATA );
-> // K : cluster 수.
-> // Data : clustering 할 데이터.
+> var kmeans = K_Means( { k : 3, data : [[0.5], [0.6], ... ] });
 > ```
-#### Clusterung at once
+> * args 
+>    *  ```k``` Number : 클러스터 갯수
+>    *  ```data``` Array : 데이터 포인트 배열.  
+
+&nbsp;&nbsp; Methods 
+
+&nbsp;&nbsp;&nbsp;&nbsp; **clustering(dist, callback1, callback2, callback3)**
+
 > ```javascript
-> kmeans.clustering( distfunc );
-> // distfunc : 두 포인트 간에 거리 계산함수
-> // euclidean_distance
-> // manhattan_distance
-> //
-> // *** Or Custom distdunction ***
-> // function custom_dist( a , b ){
-> //      ...
-> //   return {number};
-> // }
-> //
+> kmeans.clustering(kmeans.euclidean, render1, render2, render3);
 > ```
-#### Clustering Step by Step
-> ```javascript
-> //step 1
-> var end = k.set_nearest_cluster( euclidean_distance, render );
->
-> //step 2
-> k.update_centroid( render );
->
-> //last step
-> if( end ) render();
-> ```
+
+
+
+
