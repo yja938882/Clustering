@@ -32,22 +32,50 @@ Docs
 > var kmeans = K_Means( { k : 3, data : [[0.5], [0.6], ... ] });
 > ```
 > * ```args``` Object 
->    *  ```k``` Number : 클러스터 갯수
->    *  ```data``` Array : 데이터 포인트 배열.  
+>    *  ```k``` Number : # of clusters.
+>    *  ```data``` Array : Array of data points.  
 
 &nbsp;&nbsp; Methods 
 
 * **clustering(dist, callback1, callback2, callback3)**
 
+&nbsp;&nbsp;&nbsp;&nbsp;Clustring.
+
 > ```javascript
 > kmeans.clustering(kmeans.euclidean, render1, render2, render3);
 > ```
-> * ```dist``` Function
-> * ```callback1``` Function
-> * ```callback2``` Function
-> * ```callback3``` Function
+> * ```dist``` Function : Distance function.
+> * ```callback1``` Function : Function that is called after Assignment Step.
+> * ```callback2``` Function : Function that is called after Update Step.
+> * ```callback3``` Function : Function that is called after clustering.
 
+* **setNearestCluster(dist, callback)**
 
+&nbsp;&nbsp;&nbsp;&nbsp;Assignment Step. Assign each observation to the cluster.
 
+> ```javascript
+> kmeans.setNearsetCluster(kmeans.euclidean, render);
+> ```
+> * ```dist``` Function : Distance function.
+> * ```callback``` Function : Function that is called after Update Step.
+
+* **updateCentroid(callback)** 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Update Step. Calculate the new means to be the centroids.
+
+> ```javascript
+> kmeans.updateCentroid(render);
+> ```
+> * ```callback``` Function : Function that is called after Udate Step.
+
+* **euclidean(pointA, pointB)** 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Update Step. Calculate the new means to be the centroids.
+
+> ```javascript
+> var dist = kmeans.euclidean( pointA, pointB);
+> ```
+> * ```pointA``` Array : point.
+> * ```pointB``` Array : point.
 
 
