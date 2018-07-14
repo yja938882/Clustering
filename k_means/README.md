@@ -26,22 +26,27 @@ Docs
 ===
 &nbsp;&nbsp; Constructor  
 
-&nbsp;&nbsp;&nbsp;&nbsp; **K_Means(args)**   
+* **K_Means(args)**   
 
 > ```javascript
 > var kmeans = K_Means( { k : 3, data : [[0.5], [0.6], ... ] });
 > ```
-> * args 
+> * ```args``` Object 
 >    *  ```k``` Number : 클러스터 갯수
 >    *  ```data``` Array : 데이터 포인트 배열.  
 
 &nbsp;&nbsp; Methods 
 
-&nbsp;&nbsp;&nbsp;&nbsp; **clustering(dist, callback1, callback2, callback3)**
+* **clustering(dist, callback1, callback2, callback3)**
 
 > ```javascript
 > kmeans.clustering(kmeans.euclidean, render1, render2, render3);
 > ```
+> * ```dist``` Function
+> * ```callback1``` Function
+> * ```callback2``` Function
+> * ```callback3``` Function
+
 
 
 
