@@ -25,7 +25,7 @@ DataFormat
 Docs
 ===
 &nbsp;&nbsp; Constructor  
-
+</br></br>
 * **K_Means(args)**   
 
 > ```javascript
@@ -35,8 +35,10 @@ Docs
 >    *  ```k``` Number : # of clusters.
 >    *  ```data``` Array : Array of data points.  
 
-&nbsp;&nbsp; Methods 
+</br></br>
 
+&nbsp;&nbsp; Methods 
+</br></br>
 * **clustering(dist, callback1, callback2, callback3)**
 
 &nbsp;&nbsp;&nbsp;&nbsp;Clustring.
@@ -49,6 +51,8 @@ Docs
 > * ```callback2``` Function : Function that is called after Update Step.
 > * ```callback3``` Function : Function that is called after clustering.
 
+</br></br>
+
 * **setNearestCluster(dist, callback)**
 
 &nbsp;&nbsp;&nbsp;&nbsp;Assignment Step. Assign each observation to the cluster.
@@ -59,6 +63,8 @@ Docs
 > * ```dist``` Function : Distance function.
 > * ```callback``` Function : Function that is called after Update Step.
 
+</br></br>
+  
 * **updateCentroid(callback)** 
 
 &nbsp;&nbsp;&nbsp;&nbsp;Update Step. Calculate the new means to be the centroids.
@@ -68,14 +74,27 @@ Docs
 > ```
 > * ```callback``` Function : Function that is called after Udate Step.
 
+</br></br>
+  
 * **euclidean(pointA, pointB)** 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Update Step. Calculate the new means to be the centroids.
+&nbsp;&nbsp;&nbsp;&nbsp;Euclidean distance function.
 
 > ```javascript
-> var dist = kmeans.euclidean( pointA, pointB);
+> var dist = kmeans.euclidean(pointA, pointB);
 > ```
-> * ```pointA``` Array : point.
-> * ```pointB``` Array : point.
+> * ```pointA``` Array\<Number\> : point.
+> * ```pointB``` Array\<Number\> : point.
 
+</br></br>
+
+* **manhattan(pointA, pointB)** 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Manhattan distance function.
+
+> ```javascript
+> var dist = kmeans.manhattan( pointA, pointB);
+> ```
+> * ```pointA``` Array\<Number\> : point.
+> * ```pointB``` Array\<Number\> : point.
 
