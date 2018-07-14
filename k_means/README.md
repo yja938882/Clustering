@@ -5,16 +5,13 @@ example1             |  example2
 
 https://yja938882.github.io/d3_practice/k_means.html
 
-#### LOAD
+#### Load
 > ```javascript
 > <script type="text/javascript" src="/* path */d3.min.js"></script>
 > <script type="text/javascript" src="/* path */k_means.js"></script>
 #### DataFormat
 > ```javascript
-> var DATA = [
->     { x: 1, y: 2},
->     { x: 0, y: 3},
->         ...];
+> 
 >```
 #### Init
 > ```javascript
